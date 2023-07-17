@@ -1,19 +1,19 @@
 name: Deploy on S3
-
 on:
-	push:
-		branches:
-			- test
+  push:
+    branches:
+      - test
 
 jobs:
-	Compile-Code:
-		runs-on: ubuntu-latest
-		steps:
-			- uses: actions/checkout@v2
-			- uses: actions/setup-node@v2
-			  with:
-			  	node-version-file: '.nvmrc'
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-			 - run: |
-			     export REACT_APP_LAUNCHDARKLY_ACCESS_TOKEN=test
-			     yarn build
+      - uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
+	  
+      - run: |
+          export REACT_APP_LAUNCHDARKLY_ACCESS_TOKEN=test
+          yarn build
