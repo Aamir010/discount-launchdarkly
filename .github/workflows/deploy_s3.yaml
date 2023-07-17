@@ -30,4 +30,4 @@ jobs:
           aws-region: 'us-east-1'
           
       - name: Push code to S3
-        run:  aws s3 cp s3://hackerrank-dev-launchdarkly build/ --recursive
+        run:  aws s3 cp build/ s3://hackerrank-dev-launchdarkly --recursive
