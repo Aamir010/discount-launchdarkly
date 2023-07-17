@@ -22,11 +22,9 @@ jobs:
           
       - run: ls -lah build/
       
-      - name: Push Code to S3
-        uses: shallwefootball/s3-upload-action@master
-        id: S3
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          aws_key_id: ${{secrets.AWS_DEV_ACCESS_KEY}}
-          aws_secret_access_key: ${{secrets.AWS_DEV_SECRET_ACCESS_KEY}}
-          aws_bucket: hackerrank-dev-launchdarkly
-          source_dir: build/
+          aws-access-key-id: ${{ secrets.AWS_DEV_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_DEV_SECRET_ACCESS_KEY }}
+          aws-region: 'us-east-1'
