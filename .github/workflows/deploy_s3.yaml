@@ -16,4 +16,4 @@ jobs:
           
       - run: |
           export REACT_APP_LAUNCHDARKLY_ACCESS_TOKEN=test
-          yarn build
+          yarn install && yarn build
