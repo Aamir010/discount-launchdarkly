@@ -17,10 +17,8 @@ jobs:
       - name: Build
         continue-on-error: true
         run: |
-          export REACT_APP_LAUNCHDARKLY_ACCESS_TOKEN=test
+          export REACT_APP_LAUNCHDARKLY_ACCESS_TOKEN=${{ secrets.LAUNCHDARKLY_ACCESS_TOKEN }}
           yarn install && yarn build
-          
-      - run: ls -lah build/
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
